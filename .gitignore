@@ -16,8 +16,9 @@ target/
 .idea/sbt.xml
 .idea/vcs.xml
 .idea/workspace.xml
-project/
 .bsp/
+.bsp/sbt.json
+.bsp/**
 *.iws
 *.iml
 *.ipr
