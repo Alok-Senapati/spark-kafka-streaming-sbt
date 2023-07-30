@@ -16,13 +16,4 @@ object ProcessorUtils {
     val constructorMirror = classMirror.reflectConstructor(constructorSymbol)
     constructorMirror(constructorParams: _*).asInstanceOf[Processor]
   }
-
-  def main(args: Array[String]): Unit = {
-    val className = "org.example.streaming.StreamProcessor"
-    val config: Config = ConfigFactory.load("stream_console_writer.conf").getConfig("dev")
-    val spark: SparkSession = getSparkSession(config)
-    val params = Array(spark, config)
-    val processor = getProcessorInstance(className, params)
-    println(processor)
-  }
 }

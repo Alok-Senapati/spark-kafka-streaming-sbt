@@ -15,6 +15,6 @@ object Transformers {
         col("messageOffset"),
         col("data.*")
       )
-      .withColumn("processingTimestamp", date_format(current_timestamp(), "yyyy-MM-dd-hh-mm"))
+      .withColumn("processingTimestamp", date_format(current_timestamp(), "yyyy-MM-dd-HH-mm"))
   }
 }

@@ -13,16 +13,4 @@ object Extractors {
       .option("startingOffsets", "earliest")
       .load()
   }
-
-  def readKafkaBatch(spark: SparkSession, config: Config): DataFrame = {
-    spark
-      .read
-      .format("kafka")
-      .option("kafka.bootstrap.servers", config.getString("kafka.bootstrap_server"))
-      .option("subscribe", config.getString("kafka.topic"))
-      .option("kafka.group.id", config.getString("kafka.group_id"))
-      .option("startingOffsets", "earliest")
-      .option("endingOffsets", "latest")
-      .load()
-  }
 }

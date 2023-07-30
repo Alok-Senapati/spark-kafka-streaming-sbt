@@ -20,8 +20,13 @@ object SparkUtils {
 
   def getSparkSession(config: Config): SparkSession = {
     val sparkConf = getSparkConf(config)
-    SparkSession.builder()
+    val spark = SparkSession.builder()
       .config(sparkConf)
+      .config("hive.exec.dynamic.partition", "true")
+      .config("hive.exec.dynamic.partition.mode", "nonstrict")
+      .enableHiveSupport()
       .getOrCreate()
+    spark.sparkContext.setLogLevel("WARN")
+    spark
   }
 }
