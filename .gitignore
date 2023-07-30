@@ -16,6 +16,8 @@ target/
 .idea/sbt.xml
 .idea/vcs.xml
 .idea/workspace.xml
+project/
+.bsp/
 *.iws
 *.iml
 *.ipr
